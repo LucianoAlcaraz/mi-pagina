@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LUCIANO ALCARAZ - Luchotech</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+<style>
+  /* Tu CSS existente */
+  html {scroll-behavior: smooth;}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    color: #f0f0f0;
+    line-height: 1.6;
+    padding: 30px;
+    margin: 0;
+    position: relative;
+    background-color: #121212;
+    overflow-x: hidden;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 10;
+  }
+  header h1 {
+    font-size: 3.5em;
+    color: #00ff88;
+  }
+  .subtitulo {
+    color: #999;
+    font-style: italic;
+  }
+  section {
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 10;
+  }
+  h2 {
+    color: #00ffcc;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+  }
+  ul {
+    list-style-type: square;
+    padding-left: 20px;
+  }
+  .contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    position: relative;
+    z-index: 10;
+  }
+  input, textarea {
+    padding: 12px;
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 5px;
+    color: #f0f0f0;
+    font-family: 'Poppins', sans-serif;
+  }
+  button {
+    padding: 12px;
+    background-color: #00cc66;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+  }
+  button:hover {
+    background-color: #00ff88;
+  }
+
+  /* Estilos para el canvas del fondo animado */
+  #matrixCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;  /* detrás del contenido */
+    background-color: #121212;
+  }
+</style>
+
+</head>
+<body>
+
+<canvas id="matrixCanvas"></canvas>
+
+<header>
+  <h1>LUCIANO ALCARAZ</h1>
+  <p class="subtitulo">Desarrollado por Luchotech 💻</p>
+</header>
+
+<section class="about">
+  <h2>Sobre mí</h2>
+  <p>
+    Soy un apasionado por la tecnología, el aprendizaje y los desafíos. Estoy dando mis primeros pasos como programador y me encuentro en proceso de convertirme en técnico en informática.
+  </p>
+</section>
+
+<section class="skills">
+  <h2>Habilidades</h2>
+  <ul>
+    <li>HTML y CSS</li>
+    <li>Python (básico)</li>
+    <li>JavaScript (en proceso)</li>
+    <li>Resolución de problemas</li>
+  </ul>
+</section>
+
+<section id="proyectos">
+  <h2>Proyectos</h2>
+  <ul>
+    <li>📝 To-Do List en JavaScript</li>
+    <li>🌐 Landing page para bar local</li>
+    <li>📱 App de clima (en proceso)</li>
+  </ul>
+</section>
+
+<section class="contact">
+  <h2>Contactame</h2>
+
+  <button id="toggleBtn">Mostrar/Ocultar formulario</button>
+
+  <form id="formulario" class="cerrado" style="display:none; max-width:400px;">
+    <input type="text" placeholder="Tu nombre" required />
+    <input type="email" placeholder="Tu correo" required />
+    <textarea placeholder="Escribí tu mensaje..." required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+</section>
+
+<section class="contact" style="text-align:center; margin-bottom:40px; position: relative; z-index: 10;">
+  <h2>Contacto</h2>
+  <div class="contacto-redes-iconos">
+    <a href="https://wa.me/5493758462021" target="_blank" aria-label="WhatsApp">
+      <img src="img/whatsapp.png" alt="WhatsApp" width="50" height="50" />
+    </a>
+    <a href="https://instagram.com/luciano_alcaraz22" target="_blank" aria-label="Instagram">
+      <img src="img/instagram.png" alt="Instagram" width="50" height="50" />
+    </a>
+    <a href="https://www.twitch.tv/lucianooo_alcaraz" target="_blank" aria-label="Twitch">
+      <img src="img/twitch.png" alt="Twitch" width="50" height="50" />
+    </a>
+    <a href="https://kick.com/luciano-alcaraz22" target="_blank" aria-label="Kick">
+      <img src="img/kick.png" alt="Kick" width="50" height="50" />
+    </a>
+    <a href="https://www.tiktok.com/@luciano_alcaraz22" target="_blank" aria-label="TikTok">
+      <img src="img/tiktok.png" alt="TikTok" width="50" height="50" />
+    </a>
+  </div>
+</section>
+
+<footer style="position: relative; z-index: 10;">
+  <p>🧠 Proyecto <strong>LUCIANO ALCARAZ</strong> | Hecho para vos</p>
+</footer>
+
+<script>
+  // Toggle formulario
+  const btn = document.getElementById('toggleBtn');
+  const form = document.getElementById('formulario');
+
+  btn.addEventListener('click', () => {
+    if(form.style.display === 'none' || form.style.display === '') {
+      form.style.display = 'flex';
+    } else {
+      form.style.display = 'none';
+    }
+  });
+
+  // Fondo Matrix animado
+  const canvas = document.getElementById('matrixCanvas');
+  const ctx = canvas.getContext('2d');
+
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+
+  const letters = '01'; // solo 0 y 1 para estilo binario
+  const fontSize = 18;
+  const columns = Math.floor(width / fontSize);
+  const drops = [];
+
+  for(let x = 0; x < columns; x++)
+    drops[x] = Math.random() * -1000;
+
+  function draw() {
+    ctx.fillStyle = 'rgba(18, 18, 18, 0.15)'; // transparencia para borrar lento
+    ctx.fillRect(0, 0, width, height);
+
+    ctx.fillStyle = '#00ff88'; // color verde brillante
+    ctx.font = fontSize + 'px monospace';
+
+    for(let i = 0; i < drops.length; i++) {
+      const text = letters.charAt(Math.floor(Math.random() * letters.length));
+      ctx.fillText(text, i * fontSize, drops[i]);
+
+      if(drops[i] > height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i] += fontSize;
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+
+  draw();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Test Iconos Contacto</title>
+<style>
+  body {
+    background: #111;
+    color: #eee;
+    font-family: 'Poppins', sans-serif;
+    padding: 30px;
+    text-align: center;
+  }
+  .contact-icons {
+    display: inline-flex;
+    gap: 30px;
+    font-size: 2rem;
+    justify-content: center;
+  }
+  .icon-link {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+  .icon-link:hover {
+    transform: scale(1.2) rotate(10deg);
+  }
+</style>
+</head>
+<body>
+
+<section class="contact">
+  <h2>Contacto</h2>
+  <div class="contact-icons">
+    <a href="#" class="icon-link" aria-label="WhatsApp">📱</a>
+    <a href="#" class="icon-link" aria-label="Instagram">📸</a>
+    <a href="#" class="icon-link" aria-label="Email">✉</a>
+  </div>
+</section>
+
+</body>
+</html>

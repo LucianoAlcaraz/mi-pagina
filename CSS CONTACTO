@@ -1,0 +1,57 @@
+body {
+  background-color: #121212;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #ffffff;
+}
+
+.icon-link {
+  display: inline-block;
+  margin: 20px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.icon-link:hover {
+  transform: scale(1.2);
+  filter: brightness(1.3);
+}
+
+/* Estilos específicos para cada ícono */
+.icon-link.whatsapp svg {
+  fill: #25D366;
+}
+
+.icon-link.whatsapp:hover svg {
+  fill: #1EBE5D;
+}
+
+.icon-link.instagram svg {
+  fill: #E4405F;
+}
+
+.icon-link.instagram:hover svg {
+  fill: #D12D4E;
+}
+
+.icon-link.tiktok svg {
+  fill: #69C9D0;
+}
+
+.icon-link.tiktok:hover svg {
+  fill: #56B4BA;
+}
+
+.icon-link.kick svg {
+  fill: #52FF00;
+}
+
+.icon-link.kick:hover svg {
+  fill: #3BDA00;
+}
