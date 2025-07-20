@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #121212;
+  color: #f0f0f0;
+  line-height: 1.6;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 4s;
+  padding: 30px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+header h1 {
+  font-size: 3.8em;
+  color: #00ff88;
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 10px #00ff88;
+  letter-spacing: 4px;
+}
+
+.subtitulo {
+  color: #999;
+  font-style: italic;
+  margin-top: 5px;
+}
+
+section {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+h2 {
+  color: #00ffcc;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #00ff88;
+  padding-bottom: 5px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 25px;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin-top: 20px;
+}
+
+input,
+textarea {
+  padding: 14px;
+  background: #222;
+  border: 1.5px solid #00ff88;
+  border-radius: 8px;
+  color: #f0f0f0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #00cc66;
+  box-shadow: 0 0 10px #00cc66;
+}
+
+button {
+  padding: 14px;
+  background-color: #00cc66;
+  border: none;
+  color: white;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  background-color: #00ff88;
+  box-shadow: 0 0 15px #00ff88;
+}
+
+.contacto-redes-iconos {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.contacto-redes-iconos a img {
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 0 3px #00ff88);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.contacto-redes-iconos a:hover img {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px #00ff88);
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  color: #666;
+  border-top: 1px solid #222;
+}
+
+/* Canvas Matrix */
+#matrixCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: #121212;
+}
+
+/* Efecto de fade para container */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Estilos de preinicio estilo terminal */
+#preinicio {
+  position: fixed;
+  z-index: 9999;
+  background-color: #121212;
+  color: #00ff88;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Courier New', monospace;
+  flex-direction: column;
+  animation: desaparecer 1s ease forwards;
+  animation-delay: 4s;
+  text-align: center;
+}
+
+.terminal p {
+  margin: 8px 0;
+  font-size: 1.5em;
+}
+
+.puntos::after {
+  content: '';
+  animation: puntosAnim 1s infinite steps(4);
+}
+
+@keyframes puntosAnim {
+  0%   { content: '.'; }
+  25%  { content: '..'; }
+  50%  { content: '...'; }
+  75%  { content: '....'; }
+  100% { content: ''; }
+}
+
+@keyframes desaparecer {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.linea {
+  opacity: 0;
+  animation: mostrarLinea 0.6s forwards;
+}
+
+.linea:nth-child(2) { animation-delay: 1s; }
+.linea:nth-child(3) { animation-delay: 2s; }
+.acceso {
+  color: #00ff88;
+  font-weight: bold;
+}
+
+@keyframes mostrarLinea {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  body {
+    padding: 15px;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  header h1 {
+    font-size: 2.8em;
+    letter-spacing: 2px;
+  }
+
+  .contact form,
+  #formulario {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  input,
+  textarea,
+  button {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  ul {
+    padding-left: 15px;
+  }
+
+  .contacto-redes-iconos {
+    gap: 15px;
+  }
+
+  .contacto-redes-iconos a img {
+    width: 40px;
+    height: 40px;
+  }
+}
