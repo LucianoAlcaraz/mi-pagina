@@ -1,12 +1,129 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=pagina_personal.html" />
-  <title>Redirigiendo...</title>
+<meta charset="UTF-8">
+<title>Flor Virtual</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    margin:0;
+    padding:0;
+    height:100vh;
+    width:100vw;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:black;
+    overflow:hidden;
+    font-family:Arial, sans-serif;
+    color:white;
+    flex-direction:column;
+    text-align:center;
+    position:relative;
+  }
+
+  /* Fondo estrellado */
+  .stars {
+    position:absolute;
+    width:100%;
+    height:100%;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png');
+    animation: twinkle 2s infinite alternate;
+    z-index:0;
+  }
+  @keyframes twinkle { from{opacity:0.6} to{opacity:1} }
+
+  /* Girasol grande */
+  .sunflower {
+    width:50vw;
+    max-width:300px;
+    position:absolute;
+    bottom:15%;
+    left:50%;
+    transform: translateX(-50%) scale(0);
+    opacity:0;
+    animation: growUp 3s ease forwards, sway 3s infinite alternate;
+    z-index:1;
+  }
+  @keyframes growUp {
+    0% { transform: translateX(-50%) scale(0); opacity:0; }
+    60% { transform: translateX(-50%) scale(1.2); opacity:1; }
+    100% { transform: translateX(-50%) scale(1); opacity:1; }
+  }
+  @keyframes sway {
+    0%{transform: translateX(-50%) translateY(0) rotate(-10deg);}
+    50%{transform: translateX(-50%) translateY(0) rotate(10deg);}
+    100%{transform: translateX(-50%) translateY(0) rotate(-10deg);}
+  }
+
+  /* Pétalos cayendo */
+  .petal {
+    position:absolute;
+    width:20px;
+    height:20px;
+    background: radial-gradient(circle at center, #FFD700 0%, #FFA500 60%);
+    border-radius:50%;
+    opacity:0.9;
+    animation: fall linear infinite;
+    z-index:2;
+  }
+  @keyframes fall {
+    0% {transform: translateY(-10%) rotate(0deg); opacity:0.8;}
+    50% {opacity:1;}
+    100% {transform: translateY(110vh) rotate(360deg); opacity:0;}
+  }
+
+  /* Corazón */
+  .heart {
+    font-size:15vw;
+    max-font-size:100px;
+    color:red;
+    margin:5% 0;
+    opacity:0;
+    animation: appearHeart 1s forwards 4s, beat 1s infinite 5s;
+    z-index:3;
+  }
+  @keyframes appearHeart { to { opacity:1; } }
+  @keyframes beat { 0%,100%{transform:scale(1);} 50%{transform:scale(1.3);} }
+
+  /* Texto */
+  .line {
+    opacity:0;
+    font-size:5vw;
+    max-font-size:40px;
+    animation: fadeIn 2s forwards;
+    z-index:3;
+  }
+  .line:nth-child(1){animation-delay:5.5s;}
+  .line:nth-child(2){animation-delay:7s;}
+  @keyframes fadeIn { to{opacity:1;} }
+</style>
 </head>
 <body>
-  <p>Si no te redirige automáticamente, <a href="pagina_personal.html">hacé clic acá</a>.</p>
+<div class="stars"></div>
+
+<!-- Girasol grande codificado en Base64 -->
+<img class="sunflower" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAADrnEjrAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFr0lEQVR4nO3dS47kOAwG0If+/9HcqBBE7SSad1yLbnIdCMy7lExd5E6d5PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4c02r9z7o9+0adexZxXrdvX9+01U7Xd2sOq5O1g4jv3f3i7a/+VHTN31uxrV5p05tY3P+zyfX2f4Fyr39euzWv/Ojc6I0+4dYy/13rHrXp/Xtu7fXyewYf7O3nX9z/pLfy/p8ad3uZJ+1/Zk9u1OupV9s5p8d9uaWj5v13ujdf27sV9wT2O7zXO7hO0r5w+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9Xw+0/uyPrbOvr+/l3HsZv7I5fHZf3j5B9XwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD8b8f9AAAd6Hx7u6U31gAAAABJRU5ErkJggg==">
+
+<!-- Pétalos generados con JS -->
+<script>
+  for(let i=0;i<15;i++){
+    let petal = document.createElement('div');
+    petal.className='petal';
+    petal.style.left=Math.random()*100+'vw';
+    petal.style.animationDuration=(3+Math.random()*2)+'s';
+    petal.style.animationDelay=(Math.random()*5)+'s';
+    document.body.appendChild(petal);
+  }
+</script>
+
+<!-- Corazón -->
+<div class="heart">❤️</div>
+
+<!-- Texto -->
+<div style="z-index:3;">
+  <div class="line">No te las pude llevar en persona…</div>
+  <div class="line">…pero quería hacerte algo diferente 💛🌻</div>
+</div>
 </body>
 </html>
-
